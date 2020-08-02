@@ -1,0 +1,19 @@
+name: CI
+on: push
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+      - uses: actions/checkout@v2
+
+      - name: Set up Node
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12
+
+      - name: Install modules
+        run: yarn
+
+      - name: Run tests
+        run: yarn test
